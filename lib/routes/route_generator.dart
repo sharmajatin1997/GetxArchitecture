@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pro_product_explorer/constants/string/string_helper.dart';
-import 'package:pro_product_explorer/module/binding/product_binding.dart';
-import 'package:pro_product_explorer/module/ui/product_details_screen.dart';
-import 'package:pro_product_explorer/module/ui/product_list_screen.dart';
-import 'package:pro_product_explorer/routes/routes.dart';
+import 'package:getx_code_architecture/constants/string_helper.dart';
+import 'package:getx_code_architecture/module/binding/product_binding.dart';
+import 'package:getx_code_architecture/module/ui/product_details_screen.dart';
+import 'package:getx_code_architecture/module/ui/product_list_screen.dart';
+import 'package:getx_code_architecture/routes/routes.dart';
 
 
 class RoutesGenerator {

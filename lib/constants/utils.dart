@@ -2,8 +2,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pro_product_explorer/constants/color_helpers.dart';
-import 'package:pro_product_explorer/constants/string/string_helper.dart';
+import 'package:getx_code_architecture/constants/color_helpers.dart';
+import 'package:getx_code_architecture/constants/string_helper.dart';
 
 class Utils {
   String text = "";
@@ -27,9 +27,6 @@ class Utils {
       borderRadius: 10,
       snackPosition: SnackPosition.TOP,
       colorText: ColorHelper.primaryColor,
-      // icon: GestureDetector(
-      //   child: Icon(Icons.info, color: Colors.white, size: 30),
-      // ),
       duration: const Duration(seconds: 2),
       titleText: Text(
         StringHelper.proProductExplorer.tr,
@@ -58,7 +55,7 @@ class Utils {
       final result = await InternetAddress.lookup('google.com');
       return result.isNotEmpty && result[0].rawAddress.isNotEmpty;
     } on SocketException catch (_) {
-      Utils.error("Check your internet connectivity");
+      Utils.error(StringHelper.checkInternetConnection);
       return false;
     }
   }

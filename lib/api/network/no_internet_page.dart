@@ -3,9 +3,10 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pro_product_explorer/animations/animated_wrapper.dart';
-import 'package:pro_product_explorer/common_helper/loader_helper.dart';
-import 'package:pro_product_explorer/constants/color_helpers.dart';
+import 'package:getx_code_architecture/animations/animated_wrapper.dart';
+import 'package:getx_code_architecture/common_helper/loader_helper.dart';
+import 'package:getx_code_architecture/constants/string_helper.dart';
+import 'package:getx_code_architecture/constants/color_helpers.dart';
 import 'api_request.dart';
 
 class NoInternetPage extends StatefulWidget {
@@ -27,7 +28,7 @@ class _NoInternetPageState extends State<NoInternetPage>
   Timer? _retryTimer;
   bool _isRetrying = false;
 
-  // Animation
+  //==== Animation ====
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -64,7 +65,7 @@ class _NoInternetPageState extends State<NoInternetPage>
     });
   }
 
-  /// Checks real internet connection
+  //==== Checks real internet connection ====
   Future<bool> _checkInternet() async {
     try {
       if (kIsWeb) {
@@ -80,7 +81,7 @@ class _NoInternetPageState extends State<NoInternetPage>
     }
   }
 
-  /// Manual retry triggered by button
+  //==== Manual retry triggered by button ====
   Future<void> _manualRetry() async {
     if (_isRetrying) return; // Already retrying
     _isRetrying = true;
@@ -109,7 +110,6 @@ class _NoInternetPageState extends State<NoInternetPage>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -120,7 +120,7 @@ class _NoInternetPageState extends State<NoInternetPage>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Animated WiFi Icon (ScaleTransition)
+                //==== Animated WiFi Icon (ScaleTransition) ====
                 ScaleTransition(
                   scale: _animation,
                   child: AnimatedWrapper(
@@ -135,12 +135,12 @@ class _NoInternetPageState extends State<NoInternetPage>
 
                 const SizedBox(height: 30),
 
-                // Title
+                //==== Title ====
                 AnimatedWrapper(
                   animationType: CommonAnimationType.fade,
                   delay: const Duration(milliseconds: 200),
                   child: const Text(
-                    "No Internet",
+                    StringHelper.noInternet,
                     style: TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -151,13 +151,12 @@ class _NoInternetPageState extends State<NoInternetPage>
 
                 const SizedBox(height: 15),
 
-                // Description
+                //==== Description ====
                 AnimatedWrapper(
                   animationType: CommonAnimationType.slideFade,
                   delay: const Duration(milliseconds: 400),
                   child: const Text(
-                    "Oops! Your internet connection seems to be offline.\n"
-                        "Please check your connection or try again.",
+                    StringHelper.noInternetMessage,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,
@@ -168,7 +167,7 @@ class _NoInternetPageState extends State<NoInternetPage>
 
                 const SizedBox(height: 30),
 
-                // Retry Button
+                //==== Retry Button ====
                 AnimatedWrapper(
                   animationType: CommonAnimationType.pop,
                   delay: const Duration(milliseconds: 600),
@@ -179,7 +178,7 @@ class _NoInternetPageState extends State<NoInternetPage>
                       onPressed: _manualRetry,
                       icon: const Icon(Icons.refresh, color: Colors.white),
                       label: Text(
-                        _isRetrying ? 'Retrying...' : 'Try Again',
+                        _isRetrying ? StringHelper.retrying : StringHelper.tryAgain,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -198,12 +197,12 @@ class _NoInternetPageState extends State<NoInternetPage>
 
                 const SizedBox(height: 20),
 
-                // Auto retry info
+                //==== Auto retry info ====
                 AnimatedWrapper(
                   animationType: CommonAnimationType.slide,
                   delay: const Duration(milliseconds: 800),
                   child: const Text(
-                    "Automatic retry will start when internet is back.",
+                    StringHelper.automaticRetry,
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.black45,

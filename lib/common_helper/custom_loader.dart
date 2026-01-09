@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getx_code_architecture/constants/string_helper.dart';
 
 import '../constants/color_helpers.dart';
 
@@ -19,7 +20,7 @@ class CustomLoader extends StatelessWidget {
             const CircularProgressIndicator(color: Colors.white),
             const SizedBox(height: 20),
             Text(
-              message ?? "Please wait...",
+              message ?? StringHelper.pleaseWait,
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 16, color: Colors.white),
             ),
@@ -36,7 +37,7 @@ class CustomLoader extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    "Cancel",
+                    StringHelper.cancel,
                     style: TextStyle(color: Colors.white),
                   ),
                 ),

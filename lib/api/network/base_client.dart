@@ -1,34 +1,34 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart' as dio;
-import 'package:pro_product_explorer/common_helper/loader_helper.dart';
-import 'package:pro_product_explorer/common_helper/shared_prefence_helper.dart';
-import 'package:pro_product_explorer/common_helper/utils.dart';
+import 'package:getx_code_architecture/common_helper/loader_helper.dart';
+import 'package:getx_code_architecture/common_helper/shared_prefence_helper.dart';
+import 'package:getx_code_architecture/constants/string_helper.dart';
+import 'package:getx_code_architecture/constants/utils.dart';
 import 'api_request.dart';
 import 'app_exceptions.dart';
 import 'error_page.dart';
 import 'no_internet_page.dart';
 
 class BaseClient {
+
   static final dio.Dio _dio = dio.Dio()..interceptors.add(AppExceptions());
 
-  /// Handle API request with optional CancelToken
+  //==== Handle API request with optional CancelToken ====
   static Future<dynamic> handleRequest(ApiRequest apiRequest) async {
     _dio.options
       ..followRedirects = false
       ..connectTimeout = const Duration(seconds: 40)
       ..receiveTimeout = const Duration(seconds: 40);
 
-    // Check network
+    //==== Check network ====
     if (!await hasNetwork()) {
-
       return Get.to(() => NoInternetPage(
         apiRequest: apiRequest,
         callBack: handleRequest, // Pass the async function
       ));
     }
 
-    // Headers
+    //==== Headers ====
     Map<String, dynamic> headers = {
       'Accept': '*/*',
       'Content-Type': 'application/json',
@@ -43,8 +43,7 @@ class BaseClient {
 
     try {
       dio.Response<dynamic> response;
-
-      // Perform API request with optional cancelToken
+      //==== Perform API request with optional cancelToken ====
       switch (apiRequest.requestType) {
         case RequestType.get:
           response = await _dio.get(
@@ -83,13 +82,13 @@ class BaseClient {
           break;
       }
 
-      // Handle 4xx/5xx errors
+      //==== Handle 4xx/5xx errors ====
       if (response.statusCode != null &&
           response.statusCode! >= 400 &&
           response.statusCode! < 600) {
         LoaderHelper.hideLoader();
         return Get.to(() => ErrorPage(
-          message: response.data['message'] ?? 'Something went wrong!',
+          message: response.data['message'] ?? StringHelper.somethingWentWrong,
           code: response.statusCode!,
           apiRequest: apiRequest,
         ));
@@ -99,7 +98,7 @@ class BaseClient {
     } on dio.DioException catch (e) {
       LoaderHelper.hideLoader();
       if (e.type == dio.DioExceptionType.cancel) {
-        Utils.error('Request cancelled by user');
+        Utils.error(StringHelper.requestCancelledByUser);
         return null;
       }
       return Get.to(() => ErrorPage(
@@ -108,7 +107,7 @@ class BaseClient {
         apiRequest: apiRequest,
       ));
     } catch (e) {
-      Utils.error('Unexpected error: $e');
+      Utils.error('${StringHelper.unexpectedError}: $e');
       return null;
     }
   }
@@ -125,7 +124,7 @@ class BaseClient {
         ),
       );
 
-      // 204 means no content, so network is connected
+      //==== 204 means no content, so network is connected ====
       return response.statusCode == 204;
     } catch (_) {
       return false;
@@ -133,7 +132,7 @@ class BaseClient {
   }
 
 
-  /// Cancel a running API
+  //==== Cancel a running API ====
   static void cancelRequest(ApiRequest apiRequest) {
     apiRequest.cancelToken?.cancel();
   }

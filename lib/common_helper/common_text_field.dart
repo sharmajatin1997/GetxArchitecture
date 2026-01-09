@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pro_product_explorer/common_helper/style_helper.dart';
+import 'package:getx_code_architecture/constants/style_helper.dart';
 
 class CommonTextField extends StatelessWidget {
   final TextEditingController? controller;
@@ -9,16 +9,16 @@ class CommonTextField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final bool? obscureText;
-  double? height;
-  EdgeInsetsGeometry? contentPadding;
+  final double? height;
+  final EdgeInsetsGeometry? contentPadding;
   final TextInputType? keyboardType;
   final int? maxLines;
   final bool? readOnly;
   final Function(String)? onChanged;
   final String? Function(String?)? validator;
-  Color? fillColor;
+  final Color? fillColor;
 
-  CommonTextField({
+  const CommonTextField({
     super.key,
     this.controller,
     this.focusNode,
@@ -40,7 +40,6 @@ class CommonTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     return SizedBox(
       height: height ?? 50,
       child: TextFormField(

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:pro_product_explorer/animations/animated_list_view.dart';
-import 'package:pro_product_explorer/common_helper/common_text_field.dart';
-import 'package:pro_product_explorer/common_helper/style_helper.dart';
-import 'package:pro_product_explorer/constants/string/string_helper.dart';
-import 'package:pro_product_explorer/module/cotrollers/product_controller/products_controller.dart';
-import 'package:pro_product_explorer/routes/routes.dart';
-import 'package:pro_product_explorer/widgets/product_tile.dart';
+import 'package:getx_code_architecture/animations/animated_list_view.dart';
+import 'package:getx_code_architecture/common_helper/common_text_field.dart';
+import 'package:getx_code_architecture/constants/string_helper.dart';
+import 'package:getx_code_architecture/constants/style_helper.dart';
+import 'package:getx_code_architecture/module/cotrollers/product_controller/products_controller.dart';
+import 'package:getx_code_architecture/routes/routes.dart';
+import 'package:getx_code_architecture/widgets/product_tile.dart';
 
 class ProductListScreen extends StatefulWidget {
   const ProductListScreen({super.key});

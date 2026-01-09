@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:pro_product_explorer/constants/color_helpers.dart';
+import 'package:getx_code_architecture/constants/color_helpers.dart';
 
 class AnimatedLinearProgress extends StatefulWidget {
   const AnimatedLinearProgress({super.key});

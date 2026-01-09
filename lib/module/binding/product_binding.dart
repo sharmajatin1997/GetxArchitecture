@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:pro_product_explorer/module/cotrollers/product_controller/products_controller.dart';
+import 'package:getx_code_architecture/module/cotrollers/product_controller/products_controller.dart';
 
 class ProductBinding extends Bindings {
   @override

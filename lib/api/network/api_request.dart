@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart' as dio;
 
-/// API request model with CancelToken
+//==== API request model with CancelToken ====
+
 class ApiRequest {
   final String url;
   final RequestType requestType;

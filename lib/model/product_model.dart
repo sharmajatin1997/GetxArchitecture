@@ -19,13 +19,13 @@ class ProductModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.products != null) {
-      data['products'] = this.products!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (products != null) {
+      data['products'] = products!.map((v) => v.toJson()).toList();
     }
-    data['total'] = this.total;
-    data['skip'] = this.skip;
-    data['limit'] = this.limit;
+    data['total'] = total;
+    data['skip'] = skip;
+    data['limit'] = limit;
     return data;
   }
 }
@@ -111,35 +111,35 @@ class Products {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['description'] = this.description;
-    data['category'] = this.category;
-    data['price'] = this.price;
-    data['discountPercentage'] = this.discountPercentage;
-    data['rating'] = this.rating;
-    data['stock'] = this.stock;
-    data['tags'] = this.tags;
-    data['brand'] = this.brand;
-    data['sku'] = this.sku;
-    data['weight'] = this.weight;
-    if (this.dimensions != null) {
-      data['dimensions'] = this.dimensions!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['description'] = description;
+    data['category'] = category;
+    data['price'] = price;
+    data['discountPercentage'] = discountPercentage;
+    data['rating'] = rating;
+    data['stock'] = stock;
+    data['tags'] = tags;
+    data['brand'] = brand;
+    data['sku'] = sku;
+    data['weight'] = weight;
+    if (dimensions != null) {
+      data['dimensions'] = dimensions!.toJson();
     }
-    data['warrantyInformation'] = this.warrantyInformation;
-    data['shippingInformation'] = this.shippingInformation;
-    data['availabilityStatus'] = this.availabilityStatus;
-    if (this.reviews != null) {
-      data['reviews'] = this.reviews!.map((v) => v.toJson()).toList();
+    data['warrantyInformation'] = warrantyInformation;
+    data['shippingInformation'] = shippingInformation;
+    data['availabilityStatus'] = availabilityStatus;
+    if (reviews != null) {
+      data['reviews'] = reviews!.map((v) => v.toJson()).toList();
     }
-    data['returnPolicy'] = this.returnPolicy;
-    data['minimumOrderQuantity'] = this.minimumOrderQuantity;
-    if (this.meta != null) {
-      data['meta'] = this.meta!.toJson();
+    data['returnPolicy'] = returnPolicy;
+    data['minimumOrderQuantity'] = minimumOrderQuantity;
+    if (meta != null) {
+      data['meta'] = meta!.toJson();
     }
-    data['images'] = this.images;
-    data['thumbnail'] = this.thumbnail;
+    data['images'] = images;
+    data['thumbnail'] = thumbnail;
     return data;
   }
 }
@@ -158,10 +158,10 @@ class Dimensions {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['width'] = this.width;
-    data['height'] = this.height;
-    data['depth'] = this.depth;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['width'] = width;
+    data['height'] = height;
+    data['depth'] = depth;
     return data;
   }
 }
@@ -189,12 +189,12 @@ class Reviews {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['rating'] = this.rating;
-    data['comment'] = this.comment;
-    data['date'] = this.date;
-    data['reviewerName'] = this.reviewerName;
-    data['reviewerEmail'] = this.reviewerEmail;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['rating'] = rating;
+    data['comment'] = comment;
+    data['date'] = date;
+    data['reviewerName'] = reviewerName;
+    data['reviewerEmail'] = reviewerEmail;
     return data;
   }
 }
@@ -215,11 +215,11 @@ class Meta {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['barcode'] = this.barcode;
-    data['qrCode'] = this.qrCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['barcode'] = barcode;
+    data['qrCode'] = qrCode;
     return data;
   }
 }

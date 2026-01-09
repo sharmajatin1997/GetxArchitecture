@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:getx_code_architecture/constants/string_helper.dart';
 
 class AppExceptions extends Interceptor {
+
   String prettyPrint(Object object) {
     return const JsonEncoder.withIndent('  ').convert(json.decode(json.encode(object)));
   }
@@ -33,7 +35,7 @@ class AppExceptions extends Interceptor {
   void onError(DioException err, ErrorInterceptorHandler handler) {
     if (kDebugMode) {
       print("<-- ERROR ${err.message} ${err.requestOptions.uri}");
-      print("Data: ${err.response?.data ?? 'Unknown Error'}");
+      print("Data: ${err.response?.data ?? StringHelper.unknownError}");
       print("<-- END ERROR");
     }
     super.onError(err, handler);

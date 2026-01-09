@@ -1,4 +1,4 @@
-name: pro_product_explorer
+name: getx_code_architecture
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -40,6 +40,7 @@ dependencies:
   lottie: ^2.3.0
   cached_network_image: ^3.2.3
   connectivity_plus: ^7.0.0
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:

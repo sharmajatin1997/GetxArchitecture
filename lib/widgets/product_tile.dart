@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:pro_product_explorer/constants/color_helpers.dart';
-import 'package:pro_product_explorer/model/product_model.dart';
+import 'package:getx_code_architecture/constants/color_helpers.dart';
+import 'package:getx_code_architecture/model/product_model.dart';
 
 class ProductTile extends StatelessWidget {
   final Products? product;

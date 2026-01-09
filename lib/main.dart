@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:pro_product_explorer/common_helper/shared_prefence_helper.dart';
-import 'package:pro_product_explorer/constants/string/AppTranslations.dart';
-import 'package:pro_product_explorer/routes/route_generator.dart';
-import 'package:pro_product_explorer/routes/routes.dart';
-import 'package:pro_product_explorer/theme/dark_theme.dart';
-import 'package:pro_product_explorer/theme/light_theme.dart';
+import 'package:getx_code_architecture/common_helper/shared_prefence_helper.dart';
+import 'package:getx_code_architecture/constants/app_translations.dart';
+import 'package:getx_code_architecture/routes/route_generator.dart';
+import 'package:getx_code_architecture/routes/routes.dart';
+import 'package:getx_code_architecture/theme/dark_theme.dart';
+import 'package:getx_code_architecture/theme/light_theme.dart';
+
+import 'constants/size_helper.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +31,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeHelper.init(context);
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pro Product Explorer',

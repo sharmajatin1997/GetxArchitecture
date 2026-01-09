@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'color_helpers.dart';
+import 'package:getx_code_architecture/constants/size_helper.dart';
+import '../common_helper/color_helpers.dart';
 
 class StyleHelper {
-  // =========================
-  // Text Styles
-  // =========================
+
+  //==== Text Styles ====
   static TextStyle heading1(BuildContext context) {
     final theme = Theme.of(context);
     return TextStyle(
-      fontSize: 24,
+      fontSize: SizeHelper.text(24),
       fontWeight: FontWeight.bold,
       color: theme.textTheme.headlineLarge?.color ?? ColorHelper.blackColor,
     );
@@ -17,7 +17,7 @@ class StyleHelper {
   static TextStyle heading2(BuildContext context) {
     final theme = Theme.of(context);
     return TextStyle(
-      fontSize: 20,
+      fontSize: SizeHelper.text(20),
       fontWeight: FontWeight.w600,
       color: theme.textTheme.headlineMedium?.color ?? ColorHelper.blackColor,
     );
@@ -26,7 +26,7 @@ class StyleHelper {
   static TextStyle bodyText(BuildContext context) {
     final theme = Theme.of(context);
     return TextStyle(
-      fontSize: 16,
+      fontSize: SizeHelper.text(16),
       fontWeight: FontWeight.normal,
       color: theme.textTheme.bodyMedium?.color ?? ColorHelper.darkGreyColor,
     );
@@ -35,7 +35,7 @@ class StyleHelper {
   static TextStyle bodyTextBold(BuildContext context) {
     final theme = Theme.of(context);
     return TextStyle(
-      fontSize: 16,
+      fontSize: SizeHelper.text(16),
       fontWeight: FontWeight.bold,
       color: theme.textTheme.bodyLarge?.color ?? ColorHelper.blackColor,
     );
@@ -44,7 +44,7 @@ class StyleHelper {
   static TextStyle hintText(BuildContext context) {
     final theme = Theme.of(context);
     return TextStyle(
-      fontSize: 14,
+      fontSize: SizeHelper.text(14),
       fontWeight: FontWeight.normal,
       color: theme.hintColor,
     );
@@ -53,14 +53,12 @@ class StyleHelper {
   static TextStyle inputText(BuildContext context) {
     final theme = Theme.of(context);
     return TextStyle(
-      fontSize: 16,
+      fontSize: SizeHelper.text(16),
       color: theme.textTheme.bodyMedium?.color ?? ColorHelper.blackColor,
     );
   }
 
-  // =========================
-  // Button Styles
-  // =========================
+  //==== Button Styles ====
   static ButtonStyle primaryButton(BuildContext context) {
     final theme = Theme.of(context);
     return ElevatedButton.styleFrom(
@@ -81,7 +79,7 @@ class StyleHelper {
     );
   }
 
-  /// AppBar Title
+  //==== AppBar Title ====
   static Widget appBarTitle({String? title, Color? color, BuildContext? context}) {
     final themeColor = color ??
         (context != null
@@ -92,7 +90,7 @@ class StyleHelper {
       title ?? "",
       maxLines: 2,
       style: TextStyle(
-        fontSize: 20,
+        fontSize: SizeHelper.text(20),
         fontWeight: FontWeight.w600,
         color: themeColor,
       ),

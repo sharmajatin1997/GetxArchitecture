@@ -5,20 +5,20 @@ import 'package:lottie/lottie.dart';
 class LoaderHelper {
   static OverlayEntry? _overlayEntry;
 
-  /// Show Lottie loader with optional cancel
+  //==== Show Lottie loader with optional cancel ====
   static void showLoader({VoidCallback? onCancel, BuildContext? context}) {
     if (_overlayEntry != null) return;
 
     _overlayEntry = OverlayEntry(
       builder: (context) => Stack(
         children: [
-          // Semi-transparent background
+          //==== Semi-transparent background ====
           Positioned.fill(
             child: Container(
               color: Colors.black87,
             ),
           ),
-          // Centered Lottie animation
+          //==== Centered Lottie animation ====
           Center(
             child: SizedBox(
               width: 180,
@@ -29,7 +29,7 @@ class LoaderHelper {
               ),
             ),
           ),
-          // Cancel button (cross icon) at top-right
+          //==== Cancel button (cross icon) at top-right ====
           Positioned(
             top: 50,
             right: 10,
@@ -56,16 +56,16 @@ class LoaderHelper {
       ),
     );
 
-    // Insert overlay after current frame
+    //==== Insert overlay after current frame ====
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final overlayContext = context ?? Get.context;
       if (overlayContext != null) {
-        Overlay.of(overlayContext)?.insert(_overlayEntry!);
+        Overlay.of(overlayContext).insert(_overlayEntry!);
       }
     });
   }
 
-  /// Hide loader
+  //==== Hide loader ====
   static void hideLoader() {
     _overlayEntry?.remove();
     _overlayEntry = null;

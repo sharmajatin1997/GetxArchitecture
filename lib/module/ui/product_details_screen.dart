@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pro_product_explorer/animations/animated_wrapper.dart';
-import 'package:pro_product_explorer/common_helper/style_helper.dart';
-import 'package:pro_product_explorer/common_helper/utils.dart';
-import 'package:pro_product_explorer/constants/string/string_helper.dart';
-import 'package:pro_product_explorer/module/cotrollers/product_controller/products_controller.dart';
+import 'package:getx_code_architecture/animations/animated_wrapper.dart';
+import 'package:getx_code_architecture/constants/string_helper.dart';
+import 'package:getx_code_architecture/constants/style_helper.dart';
+import 'package:getx_code_architecture/constants/utils.dart';
+import 'package:getx_code_architecture/module/cotrollers/product_controller/products_controller.dart';
 
 class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({super.key});

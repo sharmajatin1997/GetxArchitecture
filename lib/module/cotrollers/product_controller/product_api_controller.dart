@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pro_product_explorer/api/network/api_request.dart';
-import 'package:pro_product_explorer/api/network/base_client.dart';
+import 'package:getx_code_architecture/api/network/api_request.dart';
+import 'package:getx_code_architecture/api/network/base_client.dart';
 import 'package:dio/dio.dart' as dio;
-import 'package:pro_product_explorer/common_helper/utils.dart';
+import 'package:getx_code_architecture/constants/utils.dart';
 
 class ProductsApiController {
 
@@ -20,7 +20,6 @@ class ProductsApiController {
 
     cancelToken ??= dio.CancelToken();
     _cancelTokens[key] = cancelToken;
-
     try {
       final apiRequest = ApiRequest(
         url: url,
@@ -29,7 +28,6 @@ class ProductsApiController {
         cancelToken: cancelToken, // use external token
       );
       final data = await BaseClient.handleRequest(apiRequest);
-
       if (data != null) {
         onSuccess(data);
       } else {
@@ -50,7 +48,7 @@ class ProductsApiController {
   }
 
 
-  /// Cancel a specific API request
+  //==== Cancel a specific API request ====
   void cancelRequest(String key) {
     if (_cancelTokens.containsKey(key)) {
       _cancelTokens[key]?.cancel();
@@ -58,7 +56,7 @@ class ProductsApiController {
     }
   }
 
-  /// Cancel all ongoing API requests
+  //==== Cancel all ongoing API requests ====
   void cancelAllRequests() {
     for (var token in _cancelTokens.values) {
       token.cancel();

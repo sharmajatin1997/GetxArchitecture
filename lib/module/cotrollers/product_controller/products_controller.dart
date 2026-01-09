@@ -3,10 +3,10 @@ import 'package:dio/dio.dart' as dio;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
-import 'package:pro_product_explorer/api/network/api_constants.dart';
-import 'package:pro_product_explorer/common_helper/loader_helper.dart';
-import 'package:pro_product_explorer/common_helper/utils.dart';
-import 'package:pro_product_explorer/model/product_model.dart';
+import 'package:getx_code_architecture/api/network/api_constants.dart';
+import 'package:getx_code_architecture/common_helper/loader_helper.dart';
+import 'package:getx_code_architecture/constants/utils.dart';
+import 'package:getx_code_architecture/model/product_model.dart';
 import 'product_api_controller.dart';
 
 class ProductController extends GetxController {
@@ -21,13 +21,6 @@ class ProductController extends GetxController {
 
   Future<void> getProduct({required BuildContext context}) async {
     final dio.CancelToken cancelToken = dio.CancelToken(); // NEW token per request
-    // LoaderHelper.showLoader(
-    //   context: context,
-    //   onCancel: () {
-    //     cancelToken.cancel();
-    //     LoaderHelper.hideLoader();
-    //   },
-    // );
     final url = "${ApiConstants.products}?limit=10&skip=$skipData";
     _productsApiController.productApi(
       url: url,
@@ -41,14 +34,11 @@ class ProductController extends GetxController {
           if (kDebugMode) {
             print(e);
           }
-          LoaderHelper.hideLoader();
         }
         update();
-        LoaderHelper.hideLoader();
       },
       onError: (data) {
         Utils.error(data);
-        LoaderHelper.hideLoader();
         return false;
       },
     );
