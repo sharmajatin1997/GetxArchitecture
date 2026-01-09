@@ -34,4 +34,34 @@ A **clean, scalable Flutter project template** using **GetX** for state manageme
 - **main.dart**  
   Application entry point.
 
+## 💡 Usage
+
+- **Add your controllers in controllers/**.
+
+- **Create bindings for dependency injection**.
+
+- **Use GetX routing in views/ for navigation**.
+
+- **Add services for APIs or business logic**.
+
+## 📌 Notes
+
+- This template uses **GetX >= 5.0**.
+- Suitable for small to large projects.
+- Follow this architecture for **clean separation of concerns** and easier testing.
+
+## 👨‍💻 Author
+Jatin Sharma
+
+Feel free to contribute or fork the project!
+
+## 📄 License
+
+MIT License
+
+## Contributing
+Contributions are welcome!
+Please fork the repository and submit a pull request.
+  
+
 
