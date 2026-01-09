@@ -47,7 +47,9 @@ A **clean, scalable Flutter project template** using **GetX** for state manageme
 ## 📌 Notes
 
 - This template uses **GetX >= 5.0**.
+  
 - Suitable for small to large projects.
+  
 - Follow this architecture for **clean separation of concerns** and easier testing.
 
 ## 👨‍💻 Author
