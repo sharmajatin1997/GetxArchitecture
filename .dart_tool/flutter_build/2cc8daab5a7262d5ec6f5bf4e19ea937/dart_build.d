@@ -1,0 +1,1 @@
+ /Users/apple/Documents/GetxArchitecture/.dart_tool/flutter_build/2cc8daab5a7262d5ec6f5bf4e19ea937/dart_build_result.json: 

@@ -6,6 +6,7 @@ class SharedPreferenceHelper {
   static late GetStorage getStorage;
 
   static const String _userToken = "userToken";
+  static const String _userId = "userId";
   static const String _languageCode = "languageCode";
 
   static final SharedPreferenceHelper _singleton =
@@ -57,6 +58,14 @@ class SharedPreferenceHelper {
 
   void saveUserToken(String? token) {
     _savePref(_userToken, token);
+  }
+
+  String? getUserId() {
+    return _getPref(_userId);
+  }
+
+  void saveUserId(String? token) {
+    _savePref(_userId, token);
   }
 
   String getLanguageCode() {
