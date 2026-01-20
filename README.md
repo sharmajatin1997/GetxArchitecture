@@ -120,16 +120,8 @@ No `BuildContext` required.
 dependencies:
   flutter:
     sdk: flutter
-  dio: ^5.9.0
   get: ^4.7.2
-  get_storage: ^2.1.1
-  lottie: ^2.3.0
-  cached_network_image: ^3.2.3
-  connectivity_plus: ^7.0.0
-  intl: ^0.20.2
-  permission_handler: ^12.0.1
-  socket_io_client: ^3.1.3
-  photo_manager: ^3.8.3
+
 ```
 
 ---
